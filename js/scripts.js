@@ -14,8 +14,10 @@ $.ajax({
   url: url,
   method: 'GET',
 }).done(function(data) {
+  $('.story-grid').empty();
   $.each(data.results, function(index,value){
-$('.story-grid').append(value.multimedia[0].url);
+    
+$('.story-grid').append('<img src="'+value.multimedia[4].url+'">');
 
   });
   console.log(data.results[0].title);

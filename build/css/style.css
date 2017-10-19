@@ -59,6 +59,19 @@ table {
   font-weight: 700;
   font-style: italic; }
 
+.loader {
+  display: none;
+  height: 38px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 38px; }
+  @media (min-width: 1000px) {
+    .loader {
+      margin-top: 1rem; } }
+
 b, b *, strong, strong * {
   font-style: normal;
   font-weight: 700 !important; }
@@ -223,18 +236,6 @@ button:hover {
     .headernyt .search-form .story-grid {
       margin: 0 auto;
       width: 100%; }
-    .headernyt .search-form .loader {
-      display: none;
-      height: 38px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-      width: 38px; }
-      @media (min-width: 1000px) {
-        .headernyt .search-form .loader {
-          margin-top: 1rem; } }
     .headernyt .search-form .stories ul {
       display: -webkit-box;
       display: -ms-flexbox;
