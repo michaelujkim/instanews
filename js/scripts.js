@@ -16,8 +16,13 @@ $.ajax({
 }).done(function(data) {
   $('.story-grid').empty();
   $.each(data.results, function(index,value){
-    
-$('.story-grid').append('<img src="'+value.multimedia[4].url+'">');
+    var photos = value.multimedia[4].url;
+    console.log(photos);
+$('.story-grid').append(
+  // '<ul><img class="stories" src="'+value.multimedia[4].url+'"></li>',
+  '<ul style="background-image: url('+photos+');"  class="stories">"'+value.title+'"</ul>' );
+
+
 
   });
   console.log(data.results[0].title);
