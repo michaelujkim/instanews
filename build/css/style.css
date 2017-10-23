@@ -85,11 +85,17 @@ table {
   background-size: 100%;
   background-repeat: no-repeat;
   text-align: center;
-  text-align: bottom; }
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  text-shadow: #000000 1px 1px 0px; }
   @media (min-width: 600px) {
     .stories {
       height: 15vw;
       width: 25vw; } }
+
+.caption {
+  background-color: rgba(128, 128, 128, 0.5); }
 
 b, b *, strong, strong * {
   font-style: normal;
@@ -152,14 +158,12 @@ button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  display: block;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin: 0 auto;
   max-width: 1600px;
   width: 100%; }
@@ -186,11 +190,10 @@ button:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 100%;
+  height: 70%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center;
-  padding: 2rem; }
+          justify-content: center; }
   @media (min-width: 600px) {
     .headernyt {
       -webkit-box-align: center;
@@ -252,6 +255,12 @@ button:hover {
           text-align: left; } }
     .headernyt .search-form .search-form-inner p {
       margin-bottom: 1rem; }
+    .headernyt .search-form .stories .article {
+      display: block;
+      width: 100%;
+      height: 420px;
+      background-position: 50%;
+      background-size: cover; }
     .headernyt .search-form .story-meta {
       background: rgba(0, 0, 0, 0.6);
       bottom: 0;
@@ -279,10 +288,7 @@ button:hover {
       flex-wrap: wrap; }
 
 .footernyt {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
+  display: block;
   color: #c2c2c2;
   font-size: 9px;
   font-size: .9rem;
