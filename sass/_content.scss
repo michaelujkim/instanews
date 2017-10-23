@@ -16,20 +16,26 @@
  }
 
  .stories{
+   
   display:flex;
   
   flex-wrap:wrap;
   
   justify-content:space-around;
   
-  height: 50vw ;
-  width: 50vw;
+  height: 60vw ;
+  width: 100vw;
   background-size: 100%;
   background-repeat: no-repeat;
   text-align:center;
+  text-align: bottom;
+  @media (min-width:600px) {
+    height: 15vw ;
+    width: 25vw;
   
 
- }
+ }}
+
 b,b *,strong,strong * {
   font-style:normal;
   font-weight:700!important

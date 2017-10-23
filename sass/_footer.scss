@@ -1,12 +1,16 @@
 
  .footernyt {
+   display:flex;
    position: relative;
   color:#c2c2c2;
   font-size:9px;
   font-size:.9rem;
   margin-bottom:3rem;
   text-align:center;
-  padding:0 2rem
+  padding:0 2rem;
+  justify-content: center;
+  align-content: bottom;
+  vertical-align: bottom;
  }
  @media (min-width:1000px) {
   .footernyt {

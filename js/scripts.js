@@ -15,6 +15,7 @@ $.ajax({
   method: 'GET',
 }).done(function(data) {
   $('.story-grid').empty();
+  // $.slice(1,12);
   $.each(data.results, function(index,value){
     var photos = value.multimedia[4].url;
     console.log(photos);
@@ -24,11 +25,16 @@ $('.story-grid').append(
 
 
 
-  });
+  
+  $('.story-grid').slice(0,11);
   console.log(data.results[0].title);
 
 }).fail(function(err) {
   throw err;
+}).always(function(){
+  
+  
+  
 });
 
 });
