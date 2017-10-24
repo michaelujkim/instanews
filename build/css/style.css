@@ -72,6 +72,9 @@ table {
     .loader {
       margin-top: 1rem; } }
 
+.loading {
+  display: block; }
+
 .stories {
   display: -webkit-box;
   display: -ms-flexbox;
