@@ -1,9 +1,11 @@
 // Built by LucyBot. www.lucybot.com
 
 $("#sections").on('change',function(){
-
+    $('.loader').show();// When user clicks on menu loading gif appears
+    var loadingGif = $('.loader');
     var value = $("#sections").val();
-      // console.log(value);
+
+     
       $('.loader').show(); 
     var url = "https://api.nytimes.com/svc/topstories/v2/" + value + ".json";
         url += '?' + $.param({
@@ -44,7 +46,5 @@ $.ajax({
 });
 
 
+
 })
-
-
-});

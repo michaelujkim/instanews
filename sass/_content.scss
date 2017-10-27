@@ -113,7 +113,6 @@ b,b *,strong,strong * {
   
   display:flex;
   display:block;
- 
   flex-direction:column;
   height:100%;
  
@@ -293,6 +292,8 @@ b,b *,strong,strong * {
 .story-grid{
 display:flex;
 flex-wrap: wrap;
+
 position:relative;
+
 
 }
