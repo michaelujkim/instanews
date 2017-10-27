@@ -63,7 +63,7 @@ table {
   display: none;
   height: 38px;
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -98,7 +98,8 @@ table {
       width: 25vw; } }
 
 .caption {
-  background-color: rgba(128, 128, 128, 0.5); }
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white; }
 
 b, b *, strong, strong * {
   font-style: normal;
@@ -175,16 +176,6 @@ button:hover {
       margin-left: 0;
       margin-right: 0; } }
 
-.screen-reader {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px; }
-
 .headernyt {
   -ms-flex-line-pack: center;
       align-content: center;
@@ -209,7 +200,12 @@ button:hover {
           -ms-flex-pack: start;
               justify-content: flex-start; } }
   .headernyt .logo {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 300px; }
     @media (min-width: 600px) {
       .headernyt .logo {
@@ -288,7 +284,8 @@ button:hover {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+  position: relative; }
 
 .footernyt {
   display: block;

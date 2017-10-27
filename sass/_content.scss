@@ -2,7 +2,7 @@
   display:none;
   height:38px;
   position:absolute;
-  top:50%;
+  top:70%;
   left:50%;
   transform:translate(-50%,-50%);
   width:38px;
@@ -42,8 +42,8 @@
  }}
 
  .caption{
-  background-color:rgba(128,128,128,0.5);
-
+  background-color:rgba(0, 0, 0, 0.5);
+  color:white;
  }
 
 b,b *,strong,strong * {
@@ -159,7 +159,8 @@ b,b *,strong,strong * {
  
 
  .logo {
-  display:block;
+  display:flex;
+  justify-content: center;
   width:300px;
   @media (min-width:600px) {
     max-width:250px;
@@ -292,5 +293,6 @@ b,b *,strong,strong * {
 .story-grid{
 display:flex;
 flex-wrap: wrap;
+position:relative;
 
 }
