@@ -206,7 +206,8 @@ button:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 300px; }
+    width: 100%;
+    height: 70%; }
     @media (min-width: 600px) {
       .headernyt .logo {
         max-width: 250px;
@@ -231,10 +232,12 @@ button:hover {
             -ms-flex: 0 1 75%;
                 flex: 0 1 75%; } }
     .headernyt .search-form .logo {
+      display: block;
       margin-bottom: 1rem;
       text-align: center;
       -webkit-transition: all .5s ease-out .5s;
-      transition: all .5s ease-out .5s; }
+      transition: all .5s ease-out .5s;
+      height: 100%; }
     .headernyt .search-form .search-form input {
       background-color: transparent;
       color: #fff;
@@ -285,9 +288,19 @@ button:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-
   position: relative; }
 
+.newheader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
+  height: 50px; }
 
 .footernyt {
   display: -webkit-box;
