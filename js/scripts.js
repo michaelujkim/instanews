@@ -3,7 +3,7 @@
 $("#sections").on('change',()=>{
   $('#header-change').removeClass("headernyt").addClass("newheader");
     $('.loader').show();// When user clicks on menu loading gif appears
-    let loadingGif = $('.loader');
+    const loadingGif = $('.loader');
     let value = $("#sections").val();
 
      
