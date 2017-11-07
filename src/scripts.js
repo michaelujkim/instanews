@@ -1,4 +1,5 @@
-// Built by LucyBot. www.lucybot.com
+import styles from "./sass/style.scss"; 
+
 
 $("#sections").on('change',()=>{
   $('#header-change').removeClass("headernyt").addClass("newheader");
@@ -34,7 +35,7 @@ $.ajax({
     console.log(photos);
     $('.story-grid').append(
   // '<ul><img class="stories" src="'+value.multimedia[4].url+'"></li>',
-  `<a href= ${photoUrl} ><li style="background-image: url(${photos});"  class="stories"><span class="caption">${abstract}<span></li>` );
+  `<li style="background-image: url(${photos});" class="stories"><a href= ${photoUrl} ><span class="caption">${abstract}<span></a></li>` );
 
   })
  
