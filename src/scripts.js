@@ -1,5 +1,5 @@
 import styles from "./sass/style.scss"; 
-
+$(document).ready(function(){
 
 $("#sections").on('change',()=>{
   $('#header-change').removeClass("headernyt").addClass("newheader");
@@ -14,9 +14,6 @@ $("#sections").on('change',()=>{
         'api-key': "5bce6c6ed27244808f1ac64af9f33203"
 });
 
-// $.ajaxStart(function(){
-// $('.loader').addClass('loading');
-// });
 
 $.ajax({
   url: url,
@@ -40,11 +37,14 @@ $.ajax({
   })
  
 
-.fail((err)=> {
-  throw err;
+.fail(()=> {
+  $('.story-grid').append("No stories able to be found")
 })
 
 .always(()=>{
  
   $('.loader').hide();
-})})})
+})
+})
+})
+})
