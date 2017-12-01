@@ -35,3 +35,10 @@ Amelia Garvin was extremly helpful in her feedback in how to get the jQuery to w
 ## Acknowledgments
 
 * Thanks to the staff and students at RED Academy
+
+![Screen Shot Instanews](images/screenshot-desktop.png "instanews")
+
+![Screen Shot Instanews](images/screenshot-tablet.png "instanews")
+
+![Screen Shot Instanews](images/screenshot-mobile.png "instanews")
+
