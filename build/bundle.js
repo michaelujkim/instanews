@@ -71,56 +71,56 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__sass_style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__sass_style_scss__);
- 
 
-$("#sections").on('change',()=>{
-  $('#header-change').removeClass("headernyt").addClass("newheader");
-    $('.loader').show();// When user clicks on menu loading gif appears
+$(document).ready(function () {
+
+  $("#sections").on('change', () => {
+    $('#header-change').removeClass("headernyt").addClass("newheader");
+    $('.loader').show(); // When user clicks on menu loading gif appears
     const loadingGif = $('.loader');
     let value = $("#sections").val();
 
-     
-      $('.loader').show(); 
+
+    $('.loader').show();
     let url = `https://api.nytimes.com/svc/topstories/v2/${value}.json`;
-        url += '?' + $.param({
-        'api-key': "5bce6c6ed27244808f1ac64af9f33203"
-});
+    url += '?' + $.param({
+      'api-key': "5bce6c6ed27244808f1ac64af9f33203"
+    });
 
-// $.ajaxStart(function(){
-// $('.loader').addClass('loading');
-// });
 
-$.ajax({
-  url: url,
-  method: 'GET',
-})
-.done((data)=>{
-  $('.story-grid').empty();
-  let storiesWithPicture = data.results.filter(function(article) {
-    return article.multimedia.length;
-  }).slice(0,12);
-  
-  $.each(storiesWithPicture, function(index,value){
-    let photos = value.multimedia[4].url;
-    let photoUrl = value.url;
-    let abstract = value.abstract;
-    console.log(photos);
-    $('.story-grid').append(
-  // '<ul><img class="stories" src="'+value.multimedia[4].url+'"></li>',
-  `<a href= ${photoUrl} ><li style="background-image: url(${photos});"  class="stories"><span class="caption">${abstract}<span></li>` );
+    $.ajax({
+        url: url,
+        method: 'GET',
+      })
+      .done((data) => {
+        $('.story-grid').empty();
+        let storiesWithPicture = data.results.filter(function (article) {
+          return article.multimedia.length;
+        }).slice(0, 12);
 
+        $.each(storiesWithPicture, function (index, value) {
+            let photos = value.multimedia[4].url;
+            let photoUrl = value.url;
+            let abstract = value.abstract;
+            console.log(photos);
+            $('.story-grid').append(
+              // '<ul><img class="stories" src="'+value.multimedia[4].url+'"></li>',
+              `<li style="background-image: url(${photos});" class="stories"><a href= ${photoUrl} ><span class="caption">${abstract}<span></a></li>`);
+
+          });
+
+
+        }).fail(() => {
+            $('.story-grid').append("No stories able to be found");
+          })
+
+          .always(() => {
+
+            $('.loader').hide();
+          });
+    
   })
- 
-
-.fail((err)=> {
-  throw err;
 })
-
-.always(()=>{
- 
-  $('.loader').hide();
-})})})
-
 
 /***/ }),
 /* 1 */
@@ -162,7 +162,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:after, blockquote:before, q:after, q:before {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n* {\n  box-sizing: border-box;\n  outline: none; }\n\n@font-face {\n  font-family: Open Sans;\n  src: url(/fonts/OpenSans-Light.ttf);\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: Open Sans;\n  src: url(/fonts/OpenSans-LightItalic.ttf); }\n\n@font-face {}@font-face {}.loader {\n  display: none;\n  height: 38px;\n  position: absolute;\n  top: 70%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 38px; }\n  @media (min-width: 1000px) {\n    .loader {\n      margin-top: 1rem; } }\n\n.loading {\n  display: block; }\n\n.stories {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  height: 60vw;\n  width: 100vw;\n  background-size: 100%;\n  background-repeat: no-repeat;\n  text-align: center;\n  align-items: flex-end;\n  text-shadow: #000000 1px 1px 0px; }\n  @media (min-width: 600px) {\n    .stories {\n      height: 15vw;\n      width: 25vw; } }\n\n.caption {\n  background-color: rgba(0, 0, 0, 0.5);\n  color: white; }\n\nb, b *, strong, strong * {\n  font-style: normal;\n  font-weight: 700 !important; }\n\nem, em *, i, i * {\n  font-style: italic; }\n\na img, fieldset, img {\n  border: 0; }\n\nimg {\n  height: 100%;\n  max-width: 100%; }\n\nhtml {\n  font-size: 16px; }\n\nbody {\n  background-color: #000;\n  color: #fff;\n  height: 100vh; }\n\nbody, button, input {\n  font-family: Open Sans,sans-serif;\n  font-size: 8px;\n  font-size: .8rem; }\n  @media (min-width: 600px) {\n    body, button, input {\n      font-size: 9px;\n      font-size: .9rem; } }\n  @media (min-width: 1000px) {\n    body, button, input {\n      font-size: 10px;\n      font-size: 1rem; } }\n\ninput {\n  border: none;\n  border-bottom: 1px solid #dbdbdb;\n  font-family: Open Sans,serif;\n  padding: .33333rem 2.5rem .33333rem 1rem; }\n\ninput:focus {\n  border-bottom-color: #fff; }\n\nbutton {\n  border: 0;\n  background-color: #e2231a;\n  color: #fff;\n  cursor: pointer;\n  display: block;\n  font-weight: 700;\n  padding: .5rem 3rem;\n  text-transform: uppercase; }\n\nbutton:hover {\n  background-color: #b41c15; }\n\n.container {\n  display: flex;\n  display: block;\n  flex-direction: column;\n  height: 100%;\n  margin: 0 auto;\n  max-width: 1600px;\n  width: 100%; }\n  @media (min-width: 1000px) {\n    .container .container {\n      margin-left: 0;\n      margin-right: 0; } }\n\n.headernyt {\n  align-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  height: 70%;\n  justify-content: center; }\n  @media (min-width: 600px) {\n    .headernyt {\n      align-items: center;\n      width: 100%; } }\n  @media (min-width: 1000px) {\n    .headernyt {\n      justify-content: flex-start; } }\n  .headernyt .logo {\n    display: flex;\n    justify-content: center;\n    width: 100%;\n    height: 70%; }\n    @media (min-width: 600px) {\n      .headernyt .logo {\n        max-width: 250px;\n        flex: 0 1 25%;\n        margin: 0 1rem 0 0;\n        text-align: left; } }\n    @media (min-width: 1000px) {\n      .headernyt .logo {\n        max-width: 300px; } }\n  .headernyt .search-form {\n    display: block;\n    width: 300px; }\n    @media (min-width: 600px) {\n      .headernyt .search-form {\n        max-width: 250px; } }\n    @media (min-width: 1000px) {\n      .headernyt .search-form {\n        max-width: 300px;\n        flex: 0 1 75%; } }\n    .headernyt .search-form .logo {\n      display: block;\n      margin-bottom: 1rem;\n      text-align: center;\n      transition: all .5s ease-out .5s;\n      height: 100%; }\n    .headernyt .search-form .search-form input {\n      background-color: transparent;\n      color: #fff;\n      padding-left: 2rem;\n      width: 100%; }\n    .headernyt .search-form .search-form input, .headernyt .search-form .search-form select {\n      font-size: 11px;\n      font-size: 1.1rem; }\n    .headernyt .search-form .search-form-inner {\n      display: inline-block;\n      position: relative;\n      text-align: center;\n      margin-bottom: 1rem;\n      width: 100%; }\n      @media (min-width: 600px) {\n        .headernyt .search-form .search-form-inner {\n          text-align: left; } }\n    .headernyt .search-form .search-form-inner p {\n      margin-bottom: 1rem; }\n    .headernyt .search-form .stories .article {\n      display: block;\n      width: 100%;\n      height: 420px;\n      background-position: 50%;\n      background-size: cover; }\n    .headernyt .search-form .story-meta {\n      background: rgba(0, 0, 0, 0.6);\n      bottom: 0;\n      color: #fff;\n      display: -ms-flexbox;\n      display: flex;\n      font-size: 10px;\n      font-size: 1rem;\n      padding: .5rem;\n      position: absolute;\n      width: 100%; }\n    .headernyt .search-form .story-meta p {\n      line-height: 1.5rem; }\n    .headernyt .search-form .feedback {\n      font-style: italic;\n      margin: 1rem 0;\n      text-align: center; }\n\n.story-grid {\n  display: flex;\n  flex-wrap: wrap;\n  position: relative; }\n\n.newheader {\n  display: flex;\n  justify-content: left;\n  align-items: top;\n  height: 50px; }\n\n.footernyt {\n  display: flex;\n  justify-content: center;\n  margin: 3em 0;\n  color: #c2c2c2;\n  font-size: 9px;\n  font-size: .9rem;\n  text-align: center;\n  padding: 0 2rem; }\n\n@media (min-width: 1000px) {\n  .footernyt {\n    text-align: left; } }\n\n.copyright span {\n  text-transform: uppercase; }\n", ""]);
+exports.push([module.i, "a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\narticle, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:after, blockquote:before, q:after, q:before {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n* {\n  box-sizing: border-box;\n  outline: none; }\n\n@font-face {\n  font-family: Open Sans;\n  src: url(/fonts/OpenSans-Light.ttf);\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: Open Sans;\n  src: url(/fonts/OpenSans-LightItalic.ttf); }\n\n@font-face {}@font-face {}img {\n  height: 100%;\n  max-width: 100%; }\n\nhtml {\n  font-size: 16px; }\n\nbody {\n  background-color: #000;\n  color: #fff;\n  height: 100vh; }\n\na {\n  text-decoration: none; }\n\n.loader {\n  display: none;\n  height: 38px;\n  position: absolute;\n  top: 70%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 38px; }\n  @media (min-width: 1000px) {\n    .loader {\n      margin-top: 1rem; } }\n\n.loading {\n  display: block; }\n\n.stories {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n  height: 60vw;\n  width: 100vw;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n  text-align: center;\n  align-items: flex-end;\n  text-shadow: #000000 1px 1px 0px;\n  position: relative;\n  overflow: hidden; }\n  @media (min-width: 600px) {\n    .stories {\n      height: 15vw;\n      width: 50vw; } }\n  .stories .caption {\n    background-color: rgba(0, 0, 0, 0.5);\n    color: white;\n    position: absolute;\n    width: 100%;\n    left: 0;\n    right: 0;\n    transform: translateY(0);\n    transition: .5s;\n    padding: 2rem; }\n  .stories:hover .caption {\n    transform: translateY(-150px); }\n\ninput {\n  border: none;\n  border-bottom: 1px solid #dbdbdb;\n  font-family: Open Sans, serif;\n  padding: .33333rem 2.5rem .33333rem 1rem; }\n\ninput:focus {\n  border-bottom-color: #fff; }\n\nbutton {\n  border: 0;\n  background-color: #e2231a;\n  color: #fff;\n  cursor: pointer;\n  display: block;\n  font-weight: 700;\n  padding: .5rem 3rem;\n  text-transform: uppercase; }\n\nbutton:hover {\n  background-color: #b41c15; }\n\n.container {\n  display: flex;\n  display: block;\n  flex-direction: column;\n  height: 100%;\n  margin: 0 auto;\n  max-width: 1600px;\n  width: 100%; }\n  @media (min-width: 1000px) {\n    .container .container {\n      margin-left: 0;\n      margin-right: 0; } }\n\n.headernyt {\n  align-content: center;\n  display: flex;\n  flex-wrap: wrap;\n  height: 70%;\n  justify-content: center; }\n  @media (min-width: 600px) {\n    .headernyt {\n      align-items: center;\n      width: 100%; } }\n  @media (min-width: 1000px) {\n    .headernyt {\n      justify-content: flex-start; } }\n  .headernyt .logo {\n    display: flex;\n    justify-content: center;\n    width: 100%;\n    height: 70%; }\n    @media (min-width: 600px) {\n      .headernyt .logo {\n        max-width: 250px;\n        flex: 0 1 25%;\n        margin: 0 1rem 0 0;\n        text-align: left; } }\n    @media (min-width: 1000px) {\n      .headernyt .logo {\n        max-width: 300px; } }\n  .headernyt .search-form {\n    display: block;\n    width: 300px; }\n    @media (min-width: 600px) {\n      .headernyt .search-form {\n        max-width: 250px; } }\n    @media (min-width: 1000px) {\n      .headernyt .search-form {\n        max-width: 300px;\n        flex: 0 1 75%; } }\n    .headernyt .search-form .logo {\n      display: block;\n      margin-bottom: 1rem;\n      text-align: center;\n      transition: all .5s ease-out .5s;\n      height: 100%; }\n    .headernyt .search-form .search-form input {\n      background-color: transparent;\n      color: #fff;\n      padding-left: 2rem;\n      width: 100%; }\n    .headernyt .search-form .search-form input,\n    .headernyt .search-form .search-form select {\n      font-size: 11px;\n      font-size: 1.1rem; }\n    .headernyt .search-form .search-form-inner {\n      display: inline-block;\n      position: relative;\n      text-align: center;\n      margin-bottom: 1rem;\n      width: 100%; }\n      @media (min-width: 600px) {\n        .headernyt .search-form .search-form-inner {\n          text-align: left; } }\n    .headernyt .search-form .search-form-inner p {\n      margin-bottom: 1rem; }\n    .headernyt .search-form .stories .article {\n      display: block;\n      width: 100%;\n      height: 420px;\n      background-position: 50%;\n      background-size: cover; }\n    .headernyt .search-form .feedback {\n      font-style: italic;\n      margin: 1rem 0;\n      text-align: center; }\n\n.story-grid {\n  display: flex;\n  flex-wrap: wrap;\n  position: relative; }\n\n.newheader {\n  display: flex;\n  justify-content: left;\n  align-items: top;\n  height: 50px; }\n\n@media (min-width: 600px) {\n  .stories {\n    width: 50vw;\n    height: 50vw; } }\n\n@media (min-width: 1000px) {\n  .stories {\n    width: 25vw;\n    height: 25vw; } }\n\n.footernyt {\n  display: flex;\n  justify-content: center;\n  margin: 3em 0;\n  color: #c2c2c2;\n  font-size: 9px;\n  font-size: .9rem;\n  text-align: center;\n  padding: 0 2rem; }\n\n@media (min-width: 1000px) {\n  .footernyt {\n    text-align: left; } }\n\n.copyright span {\n  text-transform: uppercase; }\n", ""]);
 
 // exports
 
