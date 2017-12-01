@@ -47,7 +47,7 @@
 
   &:hover {
     .caption {
-      transform: translateY(-150px);
+      transform: translateY(-100px);
     }
   }
 
@@ -167,52 +167,14 @@ button:hover {
     }
     .search-form-inner p {
       margin-bottom: 1rem
-    } //  .story-grid {
-    //   margin:0 auto;
-    //   width:100%;
-    //  }
-    //  .stories {
-    //   display:flex;
-    //   flex-wrap:wrap;
-    //   justify-content:space-around;
-    //   margin-bottom:2rem
-    //  }
-    //  .stories {
-    //   flex:0 1 100%;
-    //   max-width:100%
-    //  }
-    //  .stories  .inner-item-wrapper {
-    //   position:relative;
-    //   @media (min-width:480px) {
-    //      flex:0 1 50%;
-    //      max-width:50%
-    //    }
-    //    @media (min-width:1000px) {
-    //      flex:0 1 25%;
-    //      max-width:25%
-    //    }
-    //  }
+    }
     .stories .article {
       display: block;
       width: 100%;
       height: 420px;
       background-position: 50%;
       background-size: cover;
-    } // .story-meta {
-    //   background: rgba(0, 0, 0, .6);
-    //   bottom: 0;
-    //   color: #fff;
-    //   display: -ms-flexbox;
-    //   display: flex;
-    //   font-size: 10px;
-    //   font-size: 1rem;
-    //   padding: .5rem;
-    //   position: absolute;
-    //   width: 100%
-    // }
-    // .story-meta p {
-    //   line-height: 1.5rem
-    // }
+    } 
     .feedback {
       font-style: italic;
       margin: 1rem 0;
@@ -240,6 +202,11 @@ button:hover {
   .stories {
     width: 50vw;
     height: 50vw;
+  }
+  .logo{
+    img{
+      padding: 10px;
+    }
   }
 }
 

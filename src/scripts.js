@@ -31,7 +31,7 @@ $(document).ready(function () {
             let abstract = value.abstract;
             console.log(photos);
             $('.story-grid').append(
-              // '<ul><img class="stories" src="'+value.multimedia[4].url+'"></li>',
+              
               `<li style="background-image: url(${photos});" class="stories"><a href= ${photoUrl} ><span class="caption">${abstract}<span></a></li>`);
 
           });
