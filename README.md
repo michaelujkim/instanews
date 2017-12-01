@@ -40,5 +40,5 @@ Amelia Garvin was extremly helpful in her feedback in how to get the jQuery to w
 
 ![Screen Shot Instanews](images/screenshot-tablet.png "instanews")
 
-![Screen Shot Instanews](images/screenshot-mobile.png "instanews")
+![Screen Shot Instanews](images/screenshot-mobile1.png "instanews")
 
